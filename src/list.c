@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "list.h"
 
 int lst_push(struct list_t *lst, void *node) {
