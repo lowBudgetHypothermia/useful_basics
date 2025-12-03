@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 
+
 typedef struct ll_node {
     void *data;
     struct ll_node *next;
@@ -18,6 +19,4 @@ int ll_pushback(llist_t *ll, void *data);
 
 int ll_popback(llist_t *ll, void **back);
 
-int ll_clear(llist_t * ll);
-
-#endif
+#endif // LIST_H
