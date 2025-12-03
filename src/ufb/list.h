@@ -1,15 +1,23 @@
 #ifndef LIST_H
 #define LIST_H
 
-typedef ll_node {
+typedef struct ll_node {
     void *data;
     struct ll_node *next;
 } ll_node_t;
 
 typedef struct {
-    int len;
-    ll_node *head;
-    ll_node *tail;
+    unsigned int len;
+    ll_node_t *head;
+    ll_node_t *tail;
 } llist_t;
 
-#endif LIST_H
+int ll_init(llist_t *ll);
+
+int ll_pushback(llist_t *ll, void *data);
+
+int ll_popback(llist_t *ll, void **back);
+
+int ll_clear(llist_t * ll);
+
+#endif
