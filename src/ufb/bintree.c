@@ -29,9 +29,16 @@ int _bt_insert(bt_node_t *bt_root, bt_node_t *new) {
         return rc;
     }
 
+    if(bt_new->data == bt_root->data) {
+        rc = 3;
+        free(bt_new);
+        return rc;
+
+    }
     if(bt_new->data < bt_root->data) {
         if(bt->less) {
-            rc = bt_add(bt_root->less, bt_new);
+            rc = bt_insert(bt_root->less, bt_new);
+            if(rc) return rc;
         }
         else {
             bt->root->less = bt_new;
@@ -39,7 +46,8 @@ int _bt_insert(bt_node_t *bt_root, bt_node_t *new) {
     }
     else if(bt_new->data > bt_root->data) {}
         if(bt->greater) {
-            rc = bt_add(bt_root->greater, bt_new);
+            rc = bt_insert(bt_root->greater, bt_new);
+            if(rc) return rc;
         }
         else {
             bt->root->greater = bt_new;
@@ -72,9 +80,6 @@ int bt_add(bt_node_t *bt_root, int data) {
     new->right = NULL;
 
     rc = _bt_insert(bt_root, bt_new);
-    if(rc) {
-        rc = 4;
-    }
 
     return rc;
 }
@@ -93,9 +98,8 @@ int bt_remove(bt_node_t *bt_root, int data) {
     }
 
     /* TODO
-     * remove */
-    if(bt_root->data == data) {}
-    else if(data < bt_root->data) {}
+     * remove greater or lesser */
+    if(data < bt_root->data) {}
     else if(data > bt_root->data) {}
 
     return rc;
