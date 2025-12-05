@@ -97,7 +97,8 @@ int bt_remove(bt_node_t *bt_root, int data) {
 
     /* TODO
      * remove greater or lesser */
-    if (data < bt_root->data) {} else if (data > bt_root->data) {}
+    if (data < bt_root->data) {
+    } else if (data > bt_root->data) {}
 
     return rc;
-}
+
