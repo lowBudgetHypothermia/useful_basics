@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef UFB_LIST_H
+#define UFB_LIST_H
 
 
 typedef struct ll_node {
@@ -19,4 +19,4 @@ int ll_pushback(llist_t *ll, void *data);
 
 int ll_popback(llist_t *ll, void **back);
 
-#endif // LIST_H
+#endif  // UFB_LIST_H

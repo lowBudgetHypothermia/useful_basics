@@ -1,5 +1,5 @@
-#ifndef BINTREE_H
-#define BINTREE_H
+#ifndef UFB_BINTREE_H
+#define UFB_BINTREE_H
 
 typedef struct _bt_node {
     int data;
@@ -15,4 +15,4 @@ int bt_add(bt_node_t *bt_root, int data);
 
 int bt_remove(bt_node_t *bt_root, int data);
 
-#endif // BINTREE_H
+#endif  // UFB_BINTREE_H

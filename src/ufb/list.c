@@ -4,7 +4,7 @@
 
 int ll_init(llist_t *ll) {
     int rc = 0;
-    if(!ll) {
+    if (!ll) {
         rc = 1;
         return rc;
     }
@@ -16,7 +16,7 @@ int ll_init(llist_t *ll) {
 
 int ll_pushback(llist_t *ll, void *data) {
     int rc = 0;
-    if(!ll) {
+    if (!ll) {
         rc = 1;
         return rc;
     }
@@ -26,6 +26,7 @@ int ll_pushback(llist_t *ll, void *data) {
         rc = 2;
         return rc;
     }
+
     node->data = data;
 
     if (!ll->head) {
@@ -47,15 +48,17 @@ int ll_pushback(llist_t *ll, void *data) {
 int ll_popback(llist_t *ll, void **back) {
     int rc = 0;
 
-    if(!ll) {
+    if (!ll) {
         rc = 1;
         return rc;
     }
-    if(!ll->head) {
+
+    if (!ll->head) {
         rc = 2;
         return rc;
     }
-    if(!ll->tail) {
+
+    if (!ll->tail) {
         rc = 3;
         return rc;
     }
@@ -66,14 +69,12 @@ int ll_popback(llist_t *ll, void **back) {
     ll_node_t *to_remove = ll->tail;
 
     /* check if last element in list */
-    if(ll->head == ll->tail) {
+    if (ll->head == ll->tail) {
         ll->head = NULL;
         ll->tail = NULL;
-    }
-    /* find new tail */
-    else {
+    } else {  /* find new tail */
         ll_node_t *new_tail = ll->head;
-        while(new_tail->next != to_remove) {
+        while (new_tail->next != to_remove) {
             new_tail = new_tail->next;
         }
         ll->tail = new_tail;
